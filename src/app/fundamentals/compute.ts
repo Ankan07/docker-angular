@@ -1,4 +1,4 @@
 export function compute(number) {
   if (number < 0) return 0;
-  else return number + 42;
+  else return number + 123;
 }
