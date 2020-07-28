@@ -7,16 +7,3 @@ before_install:
 
 script:
   - docker run ankan07/docker-angular npm run test
-
-deploy:
-  provider: elasticbeanstalk
-  region: "ap-south-1"
-  app: "docker-angular"
-  env: "DockerAngular-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-766480370455"
-  bucket_path: "docker-angular"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
