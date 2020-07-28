@@ -6,4 +6,4 @@ before_install:
   - docker build -t ankan07/docker-angular -f Dockerfile.dev .
 
 script:
-  - docker run ankan07/docker-angular npm run test -- --coverage
+  - docker run ankan07/docker-angular npm run test
