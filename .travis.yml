@@ -1,3 +1,6 @@
+language: node_js
+node_js:
+  - "9"
 sudo: required
 services:
   - docker
@@ -5,13 +8,16 @@ services:
 before_install:
   - docker build -t ankan07/docker-angular -f Dockerfile.dev .
 
+before_script:
+    - npm install -g @angular/cli
 script:
   - docker run ankan07/docker-angular npm run test
-
+  - ng build
   deploy:
     provider: s3
     access_key_id: "$AWS_ACCESS_KEY"
     secret_access_key: "$AWS_SECRET_KEY"
     bucket: "docker-angular"
+    local_dir: './dist/demo-test'
 
 
