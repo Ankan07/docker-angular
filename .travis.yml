@@ -13,9 +13,12 @@ before_script:
 script:
   - docker run ankan07/docker-angular npm run test
   - ng build
+  - echo pwd is
+  - pwd
+  - echo hello there
+  - ls
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_KEY"
   bucket: "docker-angular"
-  local_dir: "dist"
